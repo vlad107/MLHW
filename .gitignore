@@ -1,0 +1,6 @@
+*.class
+.idea
+*.impl
+*.iml
+input.txt
+output.txt
