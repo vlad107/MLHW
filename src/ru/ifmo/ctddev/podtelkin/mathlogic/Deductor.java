@@ -27,7 +27,7 @@ public class Deductor {
         B = b;
         this.hypotheses = hypotheses;
         this.outline = outline;
-        this.annotations = (new ProofParser(a, b, hypotheses, outline)).annotate();
+        annotations = (new ProofParser(a, b, hypotheses, outline)).annotate();
     }
 
     public List<Expression> makeProofFromOutline() {
