@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by vlad107 on 10.05.16.
+ *
  */
 public class HW4Solver {
     private final String inputFile;
@@ -43,15 +44,15 @@ public class HW4Solver {
                 }
             }
             try {
-                List<Annotation> annotations = (new ProofParser(A, B, hypotheses, outline)).annotate();
-                for (Expression anOutline : outline) writer.write(anOutline.toString() + "\n");
-//                List<Expression> proof =  (new Deductor(A, B, hypotheses, outline)).makeProofFromOutline();
-//                for (Expression expr : proof) writer.write(expr.toString() + "\n");
-//                Expression AB = (A == null ? B : new Implication(A, B));
-//                ProofParser proofParser = new ProofParser(null, AB, hypotheses, proof);
-//                proofParser.setMustBeHypothesis(true);
-//                List<Annotation> annotations = proofParser.annotate();
-                for (Annotation annotation : annotations) System.err.println(annotation.toString());
+//                List<Annotation> annotations = (new ProofParser(A, B, hypotheses, outline)).annotate();
+//                for (Expression anOutline : outline) writer.write(anOutline.toString() + "\n");
+//                for (Annotation annotation : annotations) System.err.println(annotation.toString());
+                List<Expression> proof =  (new Deductor(A, B, hypotheses, outline)).makeProofFromOutline();
+                for (Expression expr : proof) writer.write(expr.toString() + "\n");
+                Expression AB = (A == null ? B : new Implication(A, B));
+                ProofParser proofParser = new ProofParser(null, AB, hypotheses, proof);
+                proofParser.setMustBeHypothesis(true);
+                List<Annotation> annotations = proofParser.annotate();
             } catch (ProofException | SubstitutionException e) {
                 System.out.println(e.getMessage());
             }

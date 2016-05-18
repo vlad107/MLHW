@@ -15,12 +15,16 @@ public class Solver {
             System.err.println("Usage: Solver <homework number> <input file> <output file>");
             return;
         }
-        if (args[0].equals("4")) {
-            (new HW4Solver(args[1], args[2])).run();
-        } else if (args[0].equals("5")) {
-            (new HW5Solver(args[1], args[2])).run();
-        } else if (args[0].equals("8")) {
-            (new HW8Solver(args[1], args[2])).run();
+        switch (args[0]) {
+            case "4":
+                (new HW4Solver(args[1], args[2])).run();
+                break;
+            case "5":
+                (new HW5Solver(args[1], args[2])).run();
+                break;
+            case "8":
+                (new HW8Solver(args[1], args[2])).run();
+                break;
         }
     }
 }
